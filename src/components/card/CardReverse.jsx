@@ -1,13 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
-import cn from "react-native-classnames";
-import { MyText } from "../text/MyText";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Cards, CardSides, Colors } from "../../commons";
-import { Animated } from "react-native";
-import { CardCorner } from "./CardCorner";
+import { Colors } from "../../commons";
 
-export const CardReverse = (props) => {
+export const CardReverse = () => {
   return (
     <View style={styles.reverse}>
       <MaterialCommunityIcons

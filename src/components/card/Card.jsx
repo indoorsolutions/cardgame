@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import cn from "react-native-classnames";
-import { MyText } from "../text/MyText";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Cards, CardSides, Colors } from "../../commons";
 import { Animated } from "react-native";
-import { CardCorner } from "./CardCorner";
 import { CardReverse } from "./CardReverse";
 import { CardObverse } from "./CardObverse";
 
@@ -85,7 +82,7 @@ export const Card = (props: ICardProps) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: "40%",
+    width: 130,
     height: 180,
     margin: 8,
   },

@@ -1,10 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
-import cn from "react-native-classnames";
-import { MyText } from "../text/MyText";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Cards, CardSides, Colors } from "../../commons";
-import { Animated } from "react-native";
+import { Colors } from "../../commons";
 import { CardCorner } from "./CardCorner";
 
 export const CardObverse = (props) => {

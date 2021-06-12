@@ -17,3 +17,7 @@ export const shuffle = (array) => {
 
   return array;
 };
+
+export const isStringNotEmpty = (text) => {
+  return text !== undefined && text !== null && text !== "";
+};

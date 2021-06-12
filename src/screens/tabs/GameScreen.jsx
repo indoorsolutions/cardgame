@@ -1,24 +1,25 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../components/Button";
+import { Button } from "../../components/Button";
 import {
   changeMode,
   selectCard,
   reset,
   guessCard,
   shuffleCards,
-} from "../store/slices/game";
-import { Card } from "../components/card/Card";
-import { Badge } from "../components/Badge";
-import { CardSides, Colors, Mode, Players } from "../commons";
-import { MyText } from "../components/text/MyText";
+} from "../../store/slices/game";
+import { Card } from "../../components/card/Card";
+import { Badge } from "../../components/Badge";
+import { CardSides, Colors, Mode } from "../../commons";
+import { MyText } from "../../components/text/MyText";
+import { Avatar } from "../../components/avatar/Avatar";
 
 export const GameScreen = () => {
-  const mode = useSelector((state) => state.game.mode);
-  const cards = useSelector((state) => state.game.cards);
-  const selectedCard = useSelector((state) => state.game.selectedCard);
-  const guessedCard = useSelector((state) => state.game.guessedCard);
+  const { mode, cards, selectedCard, guessedCard } = useSelector(
+    (state) => state.game
+  );
+  const { player1, player2 } = useSelector((state) => state.players);
   const dispatch = useDispatch();
 
   const getGameCurrentMessage = () => {
@@ -33,7 +34,7 @@ export const GameScreen = () => {
         break;
       case Mode.SCORE:
         message = `${
-          selectedCard === guessedCard ? Players.PLAYER2 : Players.PLAYER1
+          selectedCard === guessedCard ? player2.name : player1.name
         } wins!`;
     }
 
@@ -57,10 +58,18 @@ export const GameScreen = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Badge>{mode === Mode.SELECT ? Players.PLAYER1 : Players.PLAYER2}</Badge>
+      <Badge
+        icon={
+          <Avatar
+            image={mode === Mode.SELECT ? player1.avatar : player2.avatar}
+            style={{ borderColor: Colors.RED }}
+          />
+        }
+        text={mode === Mode.SELECT ? player1.name : player2.name}
+      />
       <MyText style={styles.message}>{getGameCurrentMessage()}</MyText>
       <View style={styles.cards_wrapper}>
-        {cards.map((card, index) => {
+        {cards.map((card) => {
           return (
             <Card
               key={card}
@@ -79,11 +88,12 @@ export const GameScreen = () => {
           kind={"SUCCESS"}
           onPress={handleConfirm}
           disable={selectedCard === null}
+          size={"DYNAMIC"}
         >
           Confirm
         </Button>
       ) : (
-        <Button kind={"ERROR"} onPress={handleReset}>
+        <Button kind={"ERROR"} onPress={handleReset} size={"DYNAMIC"}>
           Reset
         </Button>
       )}

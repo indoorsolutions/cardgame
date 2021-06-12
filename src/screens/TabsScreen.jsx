@@ -1,13 +1,14 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { WelcomeScreen } from "../screens/WelcomeScreen";
-import { GameScreen } from "../screens/GameScreen";
+import { WelcomeScreen } from "./tabs/WelcomeScreen";
+import { GameScreen } from "./tabs/GameScreen";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { SettingsScreen } from "../screens/SettingsScreen";
+import { SettingsScreen } from "./tabs/SettingsScreen";
+import { Colors } from "../commons";
 
 const Tab = createBottomTabNavigator();
 
-export const Tabs = () => {
+export const TabsScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName={"Welcome"}
@@ -28,6 +29,7 @@ export const Tabs = () => {
           );
         },
       })}
+      tabBarOptions={{ activeTintColor: Colors.RED }}
     >
       <Tab.Screen name={"Game"} component={GameScreen} />
       <Tab.Screen name={"Welcome"} component={WelcomeScreen} />

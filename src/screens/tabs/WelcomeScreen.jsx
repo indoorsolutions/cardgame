@@ -1,10 +1,9 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
-import { H1 } from "../components/text/H1";
-import { H2 } from "../components/text/H2";
+import { Heading } from "../../components/text/Heading";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Button } from "../components/Button";
-import { Colors } from "../commons";
+import { Button } from "../../components/Button";
+import { Colors } from "../../commons";
 
 export const WelcomeScreen = ({ navigation }) => {
   return (
@@ -17,17 +16,21 @@ export const WelcomeScreen = ({ navigation }) => {
         />
       </View>
       <View style={styles.title}>
-        <H1>
+        <Heading size={"H1"}>
           Welcome in
-          <H1 style={styles.green}> CardGame</H1>.
-        </H1>
+          <Heading size={"H1"} style={styles.red}>
+            {" "}
+            CardGame
+          </Heading>
+          .
+        </Heading>
       </View>
       <View>
-        <H2>
+        <Heading size={"H2"}>
           Game is meant for two players. First plauer selects one of the four
           cards. Then he hands his phone to another player who has to guess
           which card was selected.
-        </H2>
+        </Heading>
       </View>
       <Button kind={"PRIMARY"} onPress={() => navigation.navigate("Game")}>
         Start now!
@@ -43,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
   },
-  green: {
-    color: "#cf4444",
+  red: {
+    color: Colors.RED,
   },
 });
