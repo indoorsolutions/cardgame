@@ -1,58 +1,45 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Image } from "react-native";
-import { Heading } from "../../components/text/Heading";
-import { Button } from "../../components/Button";
+import { StyleSheet, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { Colors } from "../../commons";
-import { MyText } from "../../components/text/MyText";
-import { Avatar } from "../../components/avatar/Avatar";
+import { Player } from "../../components/settings/Player";
+import { setRandomize } from "../../store/slices/settings";
+import { Toggle } from "../../components/settings/Toggle";
+import { Section } from "../../components/commons/Section";
 
 export const SettingsScreen = ({ navigation }) => {
   const { player1, player2 } = useSelector((state) => state.players);
+  const { randomize } = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
   return (
     <SafeAreaView style={styles.screen}>
-      <View style={styles.title}>
-        <Heading size={"H1"}>Settings</Heading>
-      </View>
-      <View style={styles.player_container}>
-        <Avatar image={player1.avatar} />
-        <MyText style={styles.player_name}>{player1.name}</MyText>
-        <Button
-          kind={"SECONDARY"}
-          size={"MEDIUM"}
-          inline={true}
-          onPress={() => {
+      <Section title={"Players"}>
+        <Player
+          avatar={player1.avatar}
+          name={player1.name}
+          onEditClick={() => {
             navigation.navigate("UpdatePlayer", {
               player: "player1",
             });
           }}
-          style={styles.edit_button}
-        >
-          Edit
-        </Button>
-      </View>
-      <View style={styles.player_container}>
-        <Avatar image={player2.avatar} />
-        <MyText style={styles.player_name}>{player2.name}</MyText>
-        <Button
-          kind={"SECONDARY"}
-          size={"MEDIUM"}
-          inline={true}
-          onPress={() => {
+        />
+        <Player
+          avatar={player2.avatar}
+          name={player2.name}
+          onEditClick={() => {
             navigation.navigate("UpdatePlayer", {
               player: "player2",
             });
           }}
-          style={styles.edit_button}
-        >
-          Edit
-        </Button>
-      </View>
-      <Button kind={"PRIMARY"} onPress={() => {}}>
-        Save
-      </Button>
+        />
+      </Section>
+      <Section title={"Global"}>
+        <Toggle
+          value={randomize}
+          text={"Shuffle cards after select"}
+          onChange={(value) => dispatch(setRandomize(value))}
+        />
+      </Section>
     </SafeAreaView>
   );
 };
@@ -68,34 +55,9 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
-  player_container: {
+  switch_container: {
+    marginTop: 40,
     flexDirection: "row",
-    alignItems: "center",
-    marginTop: 20,
-  },
-  avatar_container: {
-    width: 40,
-    height: 40,
-    borderWidth: 1,
-    borderColor: Colors.GRAY,
-    borderStyle: "solid",
-    borderRadius: 100,
-    backgroundColor: Colors.WHITE,
-    margin: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatar_image: {
-    width: 40,
-    height: 40,
-    borderRadius: 100,
-  },
-  player_name: {
-    fontSize: 18,
-    lineHeight: 24,
-  },
-  edit_button: {
-    marginTop: 0,
-    marginLeft: "auto",
+    justifyContent: "space-between",
   },
 });

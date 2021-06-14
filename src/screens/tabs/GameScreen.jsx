@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/commons/Button";
 import {
   changeMode,
   selectCard,
@@ -10,16 +10,19 @@ import {
   shuffleCards,
 } from "../../store/slices/game";
 import { Card } from "../../components/card/Card";
-import { Badge } from "../../components/Badge";
+import { Badge } from "../../components/commons/Badge";
 import { CardSides, Colors, Mode } from "../../commons";
 import { MyText } from "../../components/text/MyText";
 import { Avatar } from "../../components/avatar/Avatar";
+import { Menu } from "../../components/menu/Menu";
+import { switchPlayers } from "../../store/slices/players";
 
-export const GameScreen = () => {
+export const GameScreen = ({ navigation }) => {
   const { mode, cards, selectedCard, guessedCard } = useSelector(
     (state) => state.game
   );
   const { player1, player2 } = useSelector((state) => state.players);
+  const { randomize } = useSelector((state) => state.settings);
   const dispatch = useDispatch();
 
   const getGameCurrentMessage = () => {
@@ -58,6 +61,25 @@ export const GameScreen = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
+      <Menu
+        items={[
+          {
+            text: "Switch players",
+            icon: "rotate-3d-variant",
+            onClick: () => {
+              dispatch(switchPlayers());
+              dispatch(reset());
+            },
+          },
+          {
+            text: "Settings",
+            icon: "cog-outline",
+            onClick: () => {
+              navigation.navigate("Settings");
+            },
+          },
+        ]}
+      />
       <Badge
         icon={
           <Avatar
@@ -78,7 +100,9 @@ export const GameScreen = () => {
               onPress={() => handleCardPress(card)}
               selected={mode !== Mode.GUESS && selectedCard === card}
               guessed={guessedCard === card}
-              onFlip={() => mode === Mode.GUESS && dispatch(shuffleCards())}
+              onFlip={() =>
+                mode === Mode.GUESS && randomize && dispatch(shuffleCards())
+              }
             />
           );
         })}

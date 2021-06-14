@@ -31,8 +31,14 @@ export const playersSlice = createSlice({
       };
       state.player2 = newPlayer;
     },
+    switchPlayers: (state) => {
+      const { player1, player2 } = state;
+      state.player1 = player2;
+      state.player2 = player1;
+    },
   },
 });
 
-export const { updatePlayer1, updatePlayer2 } = playersSlice.actions;
+export const { updatePlayer1, updatePlayer2, switchPlayers } =
+  playersSlice.actions;
 export default playersSlice.reducer;

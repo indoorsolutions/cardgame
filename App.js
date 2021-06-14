@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "./src/store/store";
 import { createStackNavigator } from "@react-navigation/stack";
 import { UpdatePlayerScreen } from "./src/screens/UpdatePlayerScreen";
+import { SettingsScreen } from "./src/screens/tabs/SettingsScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,11 @@ export default function App() {
             options={{
               headerShown: false,
             }}
+          />
+          <Stack.Screen
+            name={"Settings"}
+            component={SettingsScreen}
+            options={{ title: "Settings" }}
           />
           <Stack.Screen
             name={"UpdatePlayer"}

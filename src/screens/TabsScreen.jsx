@@ -17,7 +17,6 @@ export const TabsScreen = () => {
           const icons = {
             Welcome: "information",
             Game: "cards-playing-outline",
-            Settings: "cog-outline",
           };
 
           return (
@@ -33,7 +32,6 @@ export const TabsScreen = () => {
     >
       <Tab.Screen name={"Game"} component={GameScreen} />
       <Tab.Screen name={"Welcome"} component={WelcomeScreen} />
-      <Tab.Screen name={"Settings"} component={SettingsScreen} />
     </Tab.Navigator>
   );
 };

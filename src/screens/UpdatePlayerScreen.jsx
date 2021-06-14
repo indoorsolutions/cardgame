@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Colors } from "../commons";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import { InputText } from "../components/inputs/InputText";
-import { Button } from "../components/Button";
+import { Button } from "../components/commons/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePlayer1, updatePlayer2 } from "../store/slices/players";
 import { MyText } from "../components/text/MyText";
@@ -49,6 +49,7 @@ export const UpdatePlayerScreen = ({ route }) => {
         size={"DYNAMIC"}
         onPress={handleSave}
         disable={!dataChanged()}
+        style={{ marginTop: 16 }}
       >
         Save
       </Button>

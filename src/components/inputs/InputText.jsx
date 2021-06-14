@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.GRAY,
     borderRadius: 4,
     marginTop: 4,
+    backgroundColor: Colors.WHITE,
   },
   label: {
     color: Colors.GRAY,

@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     width: 130,
     height: 180,
     margin: 8,
+    backgroundColor: Colors.WHITE,
   },
   side: {
     position: "absolute",

@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
 import { Heading } from "../../components/text/Heading";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/commons/Button";
 import { Colors } from "../../commons";
 
 export const WelcomeScreen = ({ navigation }) => {
@@ -32,7 +32,12 @@ export const WelcomeScreen = ({ navigation }) => {
           which card was selected.
         </Heading>
       </View>
-      <Button kind={"PRIMARY"} onPress={() => navigation.navigate("Game")}>
+      <Button
+        kind={"PRIMARY"}
+        size={"DYNAMIC"}
+        onPress={() => navigation.navigate("Game")}
+        style={{ marginTop: 48 }}
+      >
         Start now!
       </Button>
     </SafeAreaView>

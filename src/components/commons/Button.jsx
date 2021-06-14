@@ -1,8 +1,8 @@
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import cn from "react-native-classnames";
-import { MyText } from "./text/MyText";
-import { Colors } from "../commons";
+import { MyText } from "../text/MyText";
+import { Colors } from "../../commons";
 
 export const Button = (props) => {
   const containerStyles = () => {
@@ -10,11 +10,6 @@ export const Button = (props) => {
       dynamic: props.size === "DYNAMIC",
       small: props.size === "SMALL",
       medium: props.size === "MEDIUM",
-      inline: props.inline,
-    });
-  };
-  const buttonStyles = () => {
-    return cn(styles, "button", {
       primary: props.kind === "PRIMARY",
       error: props.kind === "ERROR",
       success: props.kind === "SUCCESS",
@@ -35,21 +30,15 @@ export const Button = (props) => {
       style={[containerStyles(), props?.style]}
       onPress={handleOnPress}
     >
-      <View style={buttonStyles()}>
-        <MyText style={textStyles()}>{props.children}</MyText>
-      </View>
+      <MyText style={textStyles()}>{props.children}</MyText>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   button_container: {
-    height: 50,
-    marginTop: 48,
-  },
-  button: {
-    width: "100%",
-    height: "100%",
+    height: 40,
+    marginVertical: 8,
     justifyContent: "center",
     alignItems: "center",
     padding: 24,
@@ -80,9 +69,6 @@ const styles = StyleSheet.create({
   },
   medium: {
     width: 100,
-  },
-  inline: {
-    height: 32,
   },
   button_text: {
     color: Colors.WHITE,

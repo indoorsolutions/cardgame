@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { MyText } from "./text/MyText";
-import { Colors } from "../commons";
+import { MyText } from "../text/MyText";
+import { Colors } from "../../commons";
 
 export const Badge = (props) => {
   return (

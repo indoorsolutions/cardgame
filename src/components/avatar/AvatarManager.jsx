@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../../commons";
 import { Image, Platform, StyleSheet, View } from "react-native";
-import { Button } from "../Button";
+import { Button } from "../commons/Button";
 import * as ImagePicker from "expo-image-picker";
 
 export const AvatarManager = (props) => {
