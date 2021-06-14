@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Pressable } from "react-native";
 import { Colors } from "../../commons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -13,7 +13,6 @@ export const MenuButton = (props) => {
 
 const styles = StyleSheet.create({
   menu_button: {
-    marginTop: 16,
     alignSelf: "flex-start",
     alignItems: "center",
     justifyContent: "center",

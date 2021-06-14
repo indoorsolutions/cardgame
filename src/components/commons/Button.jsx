@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import cn from "react-native-classnames";
 import { MyText } from "../text/MyText";
 import { Colors } from "../../commons";

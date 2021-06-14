@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { WelcomeScreen } from "./tabs/WelcomeScreen";
 import { GameScreen } from "./tabs/GameScreen";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { SettingsScreen } from "./tabs/SettingsScreen";
 import { Colors } from "../commons";
 
 const Tab = createBottomTabNavigator();

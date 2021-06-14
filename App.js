@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import store from "./src/store/store";
 import { createStackNavigator } from "@react-navigation/stack";
 import { UpdatePlayerScreen } from "./src/screens/UpdatePlayerScreen";
-import { SettingsScreen } from "./src/screens/tabs/SettingsScreen";
+import { SettingsScreen } from "./src/screens/SettingsScreen";
 
 const Stack = createStackNavigator();
 

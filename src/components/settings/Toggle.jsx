@@ -1,12 +1,7 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Switch } from "react-native";
-import { Heading } from "../../components/text/Heading";
-import { Button } from "../../components/commons/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { View, StyleSheet, Switch } from "react-native";
 import { Colors } from "../../commons";
-import { Player } from "../../components/settings/Player";
-import { setRandomize } from "../../store/slices/settings";
-import { MyText } from "../../components/text/MyText";
+import { MyText } from "../text/MyText";
 
 export const Toggle = (props) => {
   return (

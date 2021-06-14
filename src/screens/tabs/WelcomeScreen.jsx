@@ -27,7 +27,7 @@ export const WelcomeScreen = ({ navigation }) => {
       </View>
       <View>
         <Heading size={"H2"}>
-          Game is meant for two players. First plauer selects one of the four
+          Game is meant for two players. First player selects one of the four
           cards. Then he hands his phone to another player who has to guess
           which card was selected.
         </Heading>

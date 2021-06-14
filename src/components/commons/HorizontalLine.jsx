@@ -1,10 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { MyText } from "../text/MyText";
 import { Colors } from "../../commons";
 
 export const HorizontalLine = () => {
-  return <View style={styles.horizontal_line}></View>;
+  return <View style={styles.horizontal_line} />;
 };
 
 const styles = StyleSheet.create({

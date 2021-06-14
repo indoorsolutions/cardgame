@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { Player } from "../../components/settings/Player";
-import { setRandomize } from "../../store/slices/settings";
-import { Toggle } from "../../components/settings/Toggle";
-import { Section } from "../../components/commons/Section";
+import { Player } from "../components/settings/Player";
+import { setRandomize } from "../store/slices/settings";
+import { Toggle } from "../components/settings/Toggle";
+import { Section } from "../components/commons/Section";
 
 export const SettingsScreen = ({ navigation }) => {
   const { player1, player2 } = useSelector((state) => state.players);
